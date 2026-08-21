@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>刘华林 · Portfolio</title><style>
+:root{
+  --bg:#f6f7fb;--card:#fff;--text:#172033;--muted:#6f7a8f;--line:#e7ebf2;
+  --primary:#5b5cf0;--primary2:#7c5cff;--soft:#eef0ff;--dark:#101522;
+  --shadow:0 16px 50px rgba(24,32,56,.08);--radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+button,input,textarea,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+.app{display:flex;min-height:100vh}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:260px;background:var(--dark);color:#fff;padding:34px 22px;display:flex;flex-direction:column;z-index:20}
+.brand{font-weight:800;font-size:20px;letter-spacing:.04em;margin-bottom:36px}.brand span{color:#8e91ff}
+.avatar{width:76px;height:76px;border-radius:24px;background:linear-gradient(135deg,#777aff,#9e7bff);display:grid;place-items:center;font-size:28px;font-weight:800;margin-bottom:18px}
+.side-name{font-size:22px;font-weight:800}.side-role{font-size:13px;color:#aab1c4;margin-top:4px}
+.nav{display:grid;gap:6px;margin-top:28px}.nav a{padding:11px 14px;border-radius:12px;color:#aeb5c8;font-size:14px;transition:.2s}.nav a:hover,.nav a.active{background:#1d2537;color:#fff}
+.side-bottom{margin-top:auto;color:#8992a8;font-size:12px;line-height:1.8}
+.main{margin-left:260px;width:calc(100% - 260px)}
+.container{max-width:1180px;margin:auto;padding:0 30px}
+.hero{padding:90px 0 50px;background:radial-gradient(circle at 80% 20%,rgba(113,99,255,.16),transparent 30%),linear-gradient(180deg,#fff 0%,#f7f8fc 100%)}
+.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:60px;align-items:center}
+.eyebrow{color:var(--primary);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(46px,6vw,78px);line-height:1.03;margin:14px 0 18px;letter-spacing:-.055em}
+.hero h2{font-size:22px;margin:0 0 16px}.hero p{color:var(--muted);max-width:680px;font-size:16px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{border:0;border-radius:13px;padding:12px 18px;font-weight:700;text-align:center;display:inline-flex;justify-content:center;align-items:center}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 10px 25px rgba(91,92,240,.25)}.btn-secondary{background:#fff;color:var(--text);border:1px solid var(--line)}
+.hero-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:30px 26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.hero-card .btn{width:100%}
+section{padding:72px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}
+.section-kicker{font-size:12px;color:var(--primary);font-weight:800;letter-spacing:.12em}.section-title{font-size:34px;margin:5px 0 0;letter-spacing:-.035em}.section-desc{color:var(--muted);max-width:650px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.info-item{padding:20px}.info-label{font-size:12px;color:var(--muted)}.info-value{font-weight:700;margin-top:4px;word-break:break-word}
+.edu{padding:28px;display:grid;grid-template-columns:190px 1fr;gap:30px}.edu-date{font-weight:800;color:var(--primary)}.edu-school{font-size:22px;font-weight:800}.edu-meta{color:var(--muted);margin:4px 0 14px}
+.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{background:var(--soft);color:#4f50c9;border-radius:999px;padding:5px 10px;font-size:12px}
+.awards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.award{padding:20px;display:flex;flex-direction:column;gap:12px}.award-top{display:flex;gap:14px;align-items:flex-start}.award-no{min-width:38px;height:38px;border-radius:12px;background:var(--soft);color:var(--primary);display:grid;place-items:center;font-weight:800;flex-shrink:0}.award-info{flex:1}.award-info b{display:block}.award-cert{width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fafafc}.award-cert img{width:100%;display:block;max-height:200px;object-fit:contain;background:#fff}
+.timeline{display:grid;gap:18px}.timeline-item{padding:28px;position:relative}.timeline-top{display:flex;justify-content:space-between;gap:20px;align-items:start}.timeline-date{color:var(--primary);font-size:13px;font-weight:800}.timeline-title{font-size:21px;font-weight:800;margin-top:3px}.timeline-role{font-size:13px;color:var(--muted)}.timeline-body{margin-top:18px;display:grid;gap:10px}.timeline-body p{margin:0;color:#505b70}.timeline-body b{color:var(--text)}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.project{overflow:hidden;transition:.25s;cursor:pointer;display:block;position:relative}
+.project:hover{transform:translateY(-5px);box-shadow:0 22px 60px rgba(24,32,56,.13)}
+.project-cover{height:220px;display:flex;align-items:end;padding:22px;color:#fff;position:relative;overflow:hidden;background:#1a1f33}
+.project-cover .slide-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s ease;z-index:0}
+.project-cover .slide-img.active{opacity:1}
+.project-cover .slide-img.fade{opacity:0}
+.project-cover .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(0deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.2) 60%,transparent 100%);z-index:1}
+.project-cover .cover-content{position:relative;z-index:2;width:100%}
+.project-cover h3{margin:0;font-size:25px}
+.project-cover .award-tag{display:inline-block;border:1.5px solid #ffd000;color:#ffd000;padding:3px 14px;border-radius:999px;font-size:12px;font-weight:600;margin-top:6px;background:transparent}
+.project-cover small{display:block;opacity:.7;margin-top:4px;font-size:13px}
+.project-cover .slide-dots{position:absolute;bottom:12px;right:16px;z-index:3;display:flex;gap:6px}
+.project-cover .slide-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);transition:.3s;cursor:pointer}
+.project-cover .slide-dots span.active{background:#fff;width:20px;border-radius:4px}
+.project-content{padding:24px}.project-content p{color:var(--muted);font-size:14px;margin:0 0 12px}.project-link{display:inline-flex;padding:8px 14px;border-radius:8px;background:var(--dark);color:#fff;font-size:13px;font-weight:700}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill{padding:22px}.skill h3{margin:0 0 10px}.skill p{color:var(--muted);margin:0;font-size:14px}
+.campus{display:grid;grid-template-columns:1fr 1fr;gap:18px}.campus-card{padding:25px}.campus-card h3{margin-top:0}
+.self{padding:30px;background:linear-gradient(135deg,#fff,#f0f1ff)}.self-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.self h3{margin-top:0}.self p{color:#596479}
+.footer{padding:45px 0;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:900px){
+ .sidebar{position:relative;width:100%;height:auto;display:block;padding:18px}.side-bottom,.nav{display:none}.main{margin-left:0;width:100%}.app{display:block}
+ .hero-grid,.self-grid{grid-template-columns:1fr}.info-grid{grid-template-columns:1fr 1fr}.project-grid,.campus,.skills,.awards{grid-template-columns:1fr}.edu{grid-template-columns:1fr;gap:8px}
+}
+@media(max-width:560px){.container{padding:0 18px}section{padding:50px 0}.hero{padding:55px 0 35px}.info-grid{grid-template-columns:1fr}h1{font-size:48px}.timeline-top{display:block}.project-cover{height:180px}.award-cert img{max-height:140px}}
+</style></head>
+<body><div class="app">
+<aside class="sidebar"><div class="brand">PORTFOLIO<span>.</span></div><div class="avatar">刘</div><div class="side-name">刘华林</div><div class="side-role">Computer Science · Portfolio</div>
+<nav class="nav"><a href="#about">个人信息</a><a href="#education">教育背景</a><a href="#awards">个人荣誉</a><a href="#campus">校园经历</a><a href="#internship">实习经历</a><a href="#projects">项目经历</a><a href="#skills">技能特长</a><a href="#self">自我评价</a></nav>
+<div class="side-bottom">杭州师范大学 · 计算机科学与技术<br>Personal Portfolio · 2026</div></aside>
+<main class="main">
+<header class="hero"><div class="container hero-grid"><div><div class="eyebrow">PERSONAL PORTFOLIO</div><h1>刘华林</h1><h2>计算机科学与技术 · 综合实践与项目开发</h2><p>具备从需求分析、方案设计、功能开发到成果展示的完整项目实践经验，能够快速适应不同类型的工作与项目环境。</p></div>
+<div class="hero-card">
+  <a class="btn btn-primary" href="#projects">查看作品</a>
+  <a class="btn btn-secondary" href="#about">了解我</a>
+  <button class="btn btn-secondary" onclick="openResume()">打开简历</button>
+</div></div></header>
+<section id="about"><div class="container"><div class="section-head"><div><div class="section-kicker">01 / ABOUT</div><h2 class="section-title">个人信息</h2></div></div><div class="card info-grid">
+<div class="info-item"><div class="info-label">姓名</div><div class="info-value">刘华林</div></div><div class="info-item"><div class="info-label">出生年月</div><div class="info-value">2005年6月</div></div><div class="info-item"><div class="info-label">籍贯</div><div class="info-value">北京市</div></div><div class="info-item"><div class="info-label">就读院校</div><div class="info-value">杭州师范大学</div></div>
+<div class="info-item"><div class="info-label">手机</div><div class="info-value">18310156809</div></div><div class="info-item"><div class="info-label">邮箱</div><div class="info-value">wykcpahh@163.com</div></div><div class="info-item"><div class="info-label">专业</div><div class="info-value">计算机科学与技术</div></div><div class="info-item"><div class="info-label">当前方向</div><div class="info-value">软件与项目实践</div></div></div></div></section>
+<section id="education"><div class="container"><div class="section-head"><div><div class="section-kicker">02 / EDUCATION</div><h2 class="section-title">教育背景</h2></div></div><div class="card edu"><div class="edu-date">2023.09 — 2027.06</div><div><div class="edu-school">杭州师范大学</div><div class="edu-meta">计算机科学与技术 · GPA 3.11 · 专业前30%</div><div class="tags"><span class="tag">C++程序设计</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Web</span><span class="tag">数据结构</span><span class="tag">计算机网络</span><span class="tag">操作系统</span><span class="tag">数据库</span><span class="tag">人机交互与虚拟现实</span><span class="tag">多媒体技术</span><span class="tag">UI设计</span></div></div></div></div></section>
+<section id="awards"><div class="container"><div class="section-head"><div><div class="section-kicker">03 / AWARDS</div><h2 class="section-title">个人荣誉</h2></div></div><div class="awards" id="awardsList"></div></div></section>
+<section id="campus"><div class="container"><div class="section-head"><div><div class="section-kicker">04 / CAMPUS</div><h2 class="section-title">校园经历</h2></div></div><div class="campus">
+<div class="card campus-card"><h3>院学生会文艺部 · 部长</h3><div class="timeline-date">2023.09 — 2026.09</div><p>统筹部门团队管理与全院文艺活动整体规划，牵头制定活动方案与工作流程；主导十佳歌手大赛、红歌合唱比赛、主题辩论赛等院级活动，累计保障十余场活动顺利举办。</p></div>
+<div class="card campus-card"><h3>公益实践</h3><div class="timeline-date">校园公益与社会实践</div><p>赴翰墨香林社区参与"志千里·愿随行"公益支教项目，承担课程教学与青少年活动组织工作，参与社区一线服务与实践。</p></div></div></div></section>
+<section id="internship"><div class="container"><div class="section-head"><div><div class="section-kicker">05 / INTERNSHIP</div><h2 class="section-title">实习经历</h2></div></div><div class="card timeline-item"><div class="timeline-top"><div><div class="timeline-date">2024.09 — 2024.10</div><div class="timeline-title">北京市三里屯一中</div><div class="timeline-role">实习生</div></div></div><div class="timeline-body"><p><b>教学辅助：</b>全程跟班参与日常教学工作，跟随任课教师观摩课堂教学、整理听课记录；协助完成作业批改、学情统计与教学资料整理。</p><p><b>运维测试：</b>协助开展校园多媒体教学设备、班级信息化终端的日常运维与功能测试；排查设备运行异常，调试教学系统功能模块。</p><p><b>班务管理：</b>协助班主任推进班级日常事务管理，参与主题班会策划与落地，配合学生日常引导、班级事务协调。</p></div></div></div></section>
+<section id="projects"><div class="container"><div class="section-head"><div><div class="section-kicker">06 / PROJECTS</div><h2 class="section-title">项目经历</h2></div><div class="section-desc">点击任意项目进入独立详情页，可查看项目简介、负责内容、证书图片以及项目文档。</div></div>
+<div class="project-grid" id="projectGrid"></div></div></section>
+<section id="skills"><div class="container"><div class="section-head"><div><div class="section-kicker">07 / SKILLS</div><h2 class="section-title">技能特长</h2></div></div><div class="skills">
+<div class="card skill"><h3>编程与开发</h3><p>C、C++、Java、Python、SQL；具备 Web 开发与项目开发实践经验。</p></div><div class="card skill"><h3>软件与工具</h3><p>熟悉 Office、GitHub、3ds Max、Maya、Blender、PS、AI、MasterGo 等工具。</p></div><div class="card skill"><h3>项目实践</h3><p>具备需求分析、功能开发、测试优化、数据处理与成果展示等完整项目实践能力。</p></div><div class="card skill"><h3>英语能力</h3><p>CET-4、CET-6，具有良好的英语听说读写能力。</p></div><div class="card skill"><h3>办公能力</h3><p>熟练使用 Word、Excel、PPT，具备文档排版、数据处理与汇报材料制作能力。</p></div><div class="card skill"><h3>特长爱好</h3><p>羽毛球、乒乓球、二胡、唱歌。</p></div></div></div></section>
+<section id="self"><div class="container"><div class="section-head"><div><div class="section-kicker">08 / SELF EVALUATION</div><h2 class="section-title">自我评价</h2></div></div><div class="card self"><div class="self-grid"><div><h3>专业能力</h3><p>专业基础扎实，有多项竞赛、实习和项目经历，拥有从方案设计、落地开发到成果展示的全流程实操经验，能够在不同类型的项目中承担具体开发与协作任务。</p></div><div><h3>综合素质</h3><p>认真踏实，具有较强独立工作能力和团队协作能力，责任感与执行力较强，能够根据实际任务快速学习并推进工作。</p></div></div></div></div></section>
+<footer class="footer">© 2026 刘华林 · Personal Portfolio</footer>
+</main></div>
+
+<script>
+function openResume(){ window.open('documents/Resume.pdf', '_blank'); }
+
+// ---- 个人荣誉数据 ----
+const awardsData = [
+  { no: '01', name: '2026年第19届中国大学生计算机设计大赛国赛一等奖', cert: 'images/tianqianzhu-shu_Certificate.jpg' },
+  { no: '02', name: '2025年第18届中国大学生计算机设计大赛国赛二等奖', cert: 'images/he-ming_Certificate.jpg' },
+  { no: '03', name: '2025年"星光计划"创新创业大赛三等奖', cert: 'images/residents_3_Certificate.jpg' },
+  { no: '04', name: '2024年大学暑期"三下乡"社会实践优秀调研报告二等奖', cert: 'images/residents_1_Certificate.jpg' },
+  { no: '05', name: '2024年大学暑期"三下乡"社会实践优秀团队', cert: 'images/residents_2_Certificate.jpg' },
+  { no: '06', name: '2025年第十五届杭州师范大学信息科学与技术学院十佳歌手季军', cert: 'images/singer_Certificate.jpg' }
+];
+
+// 渲染个人荣誉
+function renderAwards(){
+  const container = document.getElementById('awardsList');
+  container.innerHTML = awardsData.map(a => `
+    <div class="card award">
+      <div class="award-top">
+        <div class="award-no">${a.no}</div>
+        <div class="award-info"><b>${a.name}</b></div>
+      </div>
+      <div class="award-cert"><img src="${a.cert}" alt="${a.name} 奖状" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'padding:16px;text-align:center;color:#999;font-size:13px\\'>奖状图片加载失败</div>'"></div>
+    </div>
+  `).join('');
+}
+
+// ---- 项目数据 ----
+const projects = [
+  {
+    name: '天堑筑蜀',
+    link: 'tianqianzhu-shu.html',
+    badge: '🏅 第19届中国大学生计算机设计大赛 · 国赛一等奖 & 特色作品',
+    desc: '以蜀道建设为主题，融合多种技术实现多模态交互。',
+    hasAward: true,
+    images: [
+      'images/tianqianzhu-shu_image1.jpg',
+      'images/tianqianzhu-shu_image2.jpg',
+      'images/tianqianzhu-shu_image3.jpg',
+      'images/tianqianzhu-shu_image4.jpg',
+      'images/tianqianzhu-shu_image5.jpg',
+      'images/tianqianzhu-shu_image6.jpg',
+      'images/tianqianzhu-shu_image7.jpg',
+      'images/tianqianzhu-shu_image8.jpg',
+      'images/tianqianzhu-shu_Certificate.jpg'
+    ],
+    coverClass: ''
+  },
+  {
+    name: '和鸣',
+    link: 'he-ming.html',
+    badge: '🏅 第18届中国大学生计算机设计大赛 · 国赛二等奖',
+    desc: '融合实物沙盘、声光影与运动捕捉的交互声音装置。',
+    hasAward: true,
+    images: [
+      'images/he-ming_image1.jpg',
+      'images/he-ming_image2.jpg',
+      'images/he-ming_image3.jpg',
+      'images/he-ming_image4.jpg',
+      'images/he-ming_Certificate.jpg'
+    ],
+    coverClass: 'alt'
+  },
+  {
+    name: '《学无涯》',
+    link: 'xuewuya.html',
+    badge: '中老年在线学习服务平台 · 主要负责人',
+    desc: '面向中老年用户的在线学习与社群服务平台。',
+    hasAward: false,
+    images: [
+      'images/xuewuya_image1.jpg',
+      'images/xuewuya_image2.jpg'
+    ],
+    coverClass: 'green'
+  },
+  {
+    name: '餐厅管理系统',
+    link: 'restaurant.html',
+    badge: 'Web管理系统 · 主要负责人',
+    desc: '围绕点餐、预订、收银与人员管理设计的综合系统。',
+    hasAward: false,
+    images: [
+      'images/restaurant_image1.jpg',
+      'images/restaurant_image2.jpg',
+      'images/restaurant_image3.jpg',
+      'images/restaurant_image4.jpg',
+      'images/restaurant_image5.jpg',
+      'images/restaurant_image6.jpg'
+    ],
+    coverClass: 'orange'
+  },
+  {
+    name: '杭州市居民幸福感调研',
+    link: 'residents.html',
+    badge: '🏅 "星光计划"创新创业大赛 · 三等奖',
+    desc: '围绕五大维度开展社区居民幸福感调研与数据分析。',
+    hasAward: true,
+    images: [
+      'images/residents_1_Certificate.jpg',
+      'images/residents_2_Certificate.jpg',
+      'images/residents_3_Certificate.jpg'
+    ],
+    coverClass: 'purple'
+  }
+];
+
+// 渲染项目卡片
+function renderProjects(){
+  const grid = document.getElementById('projectGrid');
+  grid.innerHTML = projects.map((p, idx) => {
+    const hasImages = p.images && p.images.length > 0;
+    const imgs = p.images || [];
+    return `
+      <a class="card project" href="${p.link}" data-index="${idx}">
+        <div class="project-cover ${p.coverClass}" data-project="${idx}">
+          ${hasImages ? imgs.map((img, i) => `
+            <img class="slide-img ${i === 0 ? 'active' : ''}" src="${img}" alt="${p.name}" data-index="${i}" loading="lazy">
+          `).join('') : ''}
+          <div class="overlay"></div>
+          <div class="cover-content">
+            <h3>${p.name}</h3>
+            ${p.hasAward ? `<span class="award-tag">${p.badge}</span>` : `<small>${p.badge}</small>`}
+          </div>
+          ${hasImages && imgs.length > 1 ? `
+            <div class="slide-dots">
+              ${imgs.map((_, i) => `<span class="${i === 0 ? 'active' : ''}" data-index="${i}"></span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+        <div class="project-content">
+          <p>${p.desc}</p>
+          <span class="project-link">查看项目详情 →</span>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  // 启动轮播
+  projects.forEach((p, idx) => {
+    if (p.images && p.images.length > 1) {
+      startSlideshow(idx, p.images.length);
+    }
+  });
+}
+
+// 轮播逻辑
+let slideshowIntervals = {};
+
+function startSlideshow(projectIndex, total){
+  const container = document.querySelector(`.project-cover[data-project="${projectIndex}"]`);
+  if(!container) return;
+  const imgs = container.querySelectorAll('.slide-img');
+  const dots = container.querySelectorAll('.slide-dots span');
+  if(imgs.length < 2) return;
+
+  let current = 0;
+  if(slideshowIntervals[projectIndex]) clearInterval(slideshowIntervals[projectIndex]);
+
+  slideshowIntervals[projectIndex] = setInterval(() => {
+    const next = (current + 1) % imgs.length;
+    imgs[current].classList.remove('active');
+    imgs[current].classList.add('fade');
+    imgs[next].classList.remove('fade');
+    imgs[next].classList.add('active');
+    if(dots.length){
+      dots[current].classList.remove('active');
+      dots[next].classList.add('active');
+    }
+    current = next;
+  }, 2500);
+
+  container.addEventListener('mouseenter', () => {
+    if(slideshowIntervals[projectIndex]) clearInterval(slideshowIntervals[projectIndex]);
+  });
+  container.addEventListener('mouseleave', () => {
+    if(slideshowIntervals[projectIndex]) clearInterval(slideshowIntervals[projectIndex]);
+    slideshowIntervals[projectIndex] = setInterval(() => {
+      const next = (current + 1) % imgs.length;
+      imgs[current].classList.remove('active');
+      imgs[current].classList.add('fade');
+      imgs[next].classList.remove('fade');
+      imgs[next].classList.add('active');
+      if(dots.length){
+        dots[current].classList.remove('active');
+        dots[next].classList.add('active');
+      }
+      current = next;
+    }, 2500);
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      imgs[current].classList.remove('active');
+      imgs[current].classList.add('fade');
+      imgs[i].classList.remove('fade');
+      imgs[i].classList.add('active');
+      dots[current].classList.remove('active');
+      dots[i].classList.add('active');
+      current = i;
+      if(slideshowIntervals[projectIndex]){
+        clearInterval(slideshowIntervals[projectIndex]);
+        slideshowIntervals[projectIndex] = setInterval(() => {
+          const next = (current + 1) % imgs.length;
+          imgs[current].classList.remove('active');
+          imgs[current].classList.add('fade');
+          imgs[next].classList.remove('fade');
+          imgs[next].classList.add('active');
+          if(dots.length){
+            dots[current].classList.remove('active');
+            dots[next].classList.add('active');
+          }
+          current = next;
+        }, 2500);
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  renderAwards();
+  renderProjects();
+});
+</script></body></html>
